@@ -5,9 +5,9 @@ fun main() {
     var nODD = 0
     var nEVE = 0
 
-    for(i in 0..9) {
+    for(i in 1..10) {
 
-        println("Enter a Number: ")
+        println("Enter the ${i}º Number: ")
         val nbR = readLine()!!.toInt()
 
         if(nbR % 2 == 0){
