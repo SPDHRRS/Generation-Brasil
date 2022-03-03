@@ -31,7 +31,7 @@ fun main(){
         println("Whats your genre?: (1-Feminine, 2-Masculine, 3-Others)")
         val seX = readLine()!!.toInt()
 
-        println("Witch one are you?: (1-calm, 2-Nervous, 3-Aggressive")
+        println("Witch one are you?: (1-Calm, 2-Nervous, 3-Aggressive")
         val mND = readLine()!!.toInt()
 
         nTP++
