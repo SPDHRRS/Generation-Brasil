@@ -1,6 +1,6 @@
 class Calc(var n1:Double, var n2:Double) {
 
-    //companion object {
+    companion object {
         var result = 0.0
 
         fun suM(n1: Double, n2: Double):Double {
@@ -35,5 +35,5 @@ class Calc(var n1:Double, var n2:Double) {
 
         }
 
-  //  }
+    }
 }

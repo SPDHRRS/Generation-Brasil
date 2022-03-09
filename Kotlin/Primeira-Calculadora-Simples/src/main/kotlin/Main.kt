@@ -18,7 +18,7 @@ fun main() {
 
         if(oPR2 == 5){
 
-            println("\nThe Result is: ${calcS.result}")
+            println("\nThe Result is: ${Calc.result}")
 
         }else if(oPR2 == 0){
 
@@ -33,10 +33,10 @@ fun main() {
 
             when(oPR){
 
-                1 -> {calcS.suM(calcS.n1, calcS.n2)}
-                2 -> {calcS.suB(calcS.n1, calcS.n2)}
-                3 -> {calcS.mulT(calcS.n1, calcS.n2)}
-                4 -> {calcS.diV(calcS.n1, calcS.n2)}
+                1 -> {Calc.suM(calcS.n1, calcS.n2)}
+                2 -> {Calc.suB(calcS.n1, calcS.n2)}
+                3 -> {Calc.mulT(calcS.n1, calcS.n2)}
+                4 -> {Calc.diV(calcS.n1, calcS.n2)}
 
             }
             if(oPR >= 5 || oPR <= 0){
