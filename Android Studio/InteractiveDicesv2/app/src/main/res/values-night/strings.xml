@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="d20">D20</string>
+    <string name="d6">D6</string>
+    <string name="d12">D12</string>
+    <string name="choose_a_dice_bellow_to_roll_your_luck">Choose a Dice Bellow To Roll Your Luck</string>
+    <string name="roll6">Roll</string>
+    <string name="Favors">May The Odds Be in Your Favor</string>
+    <string name="castluck" />
+    <string name="roll12">ROLL</string>
+    <string name="roll20">ROLL</string>
+</resources>
