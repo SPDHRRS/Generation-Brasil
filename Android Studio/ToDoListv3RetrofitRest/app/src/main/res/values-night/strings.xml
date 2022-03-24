@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="FAADDButton">ADD</string>
+    <string name="name">Name</string>
+    <string name="buttonSave">Save</string>
+    <string name="description">Description</string>
+    <string name="owner">Owner</string>
+    <string name="date">Date</string>
+    <string name="in_progress">In Progress</string>
+    <string name="delete">DELETE</string>
+</resources>
