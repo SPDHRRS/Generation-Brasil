@@ -6,4 +6,7 @@ data class Category(
     var tarefas:List<Task>
 )
 {
+    override fun toString(): String {
+        return descricao!!
+    }
 }

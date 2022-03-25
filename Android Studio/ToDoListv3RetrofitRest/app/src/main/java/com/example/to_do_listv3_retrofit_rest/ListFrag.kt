@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.to_do_listv3_retrofit_rest.Adapter.TaskAdapter
 import com.example.to_do_listv3_retrofit_rest.databinding.FragmentListBinding
-
 class ListFrag : Fragment() {
 
     private lateinit var binding: FragmentListBinding
@@ -26,9 +25,6 @@ class ListFrag : Fragment() {
 
         mainViewModel.listCategory()
 
-        mainViewModel.responseListCategory.observe(viewLifecycleOwner) { response ->
-            Log.d("Requisition", response.body().toString())
-        }
         val adapter = TaskAdapter()
 
         binding.recyclerTaskV.layoutManager = LinearLayoutManager(context)
