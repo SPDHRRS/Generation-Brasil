@@ -1,7 +1,6 @@
 package com.example.to_do_listv3_retrofit_rest
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +9,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.to_do_listv3_retrofit_rest.Adapter.TaskAdapter
+import com.example.to_do_listv3_retrofit_rest.Adapter.TaskItemClickListener
+import com.example.to_do_listv3_retrofit_rest.Model.Task
 import com.example.to_do_listv3_retrofit_rest.databinding.FragmentListBinding
-class ListFrag : Fragment() {
+class ListFrag : Fragment() , TaskItemClickListener{
 
     private lateinit var binding: FragmentListBinding
     private val mainViewModel: MainViewModel by activityViewModels()
@@ -25,7 +26,9 @@ class ListFrag : Fragment() {
 
         mainViewModel.listCategory()
 
-        val adapter = TaskAdapter()
+        mainViewModel.listTask()
+
+        val adapter = TaskAdapter(this, mainViewModel)
 
         binding.recyclerTaskV.layoutManager = LinearLayoutManager(context)
         binding.recyclerTaskV.adapter = adapter
@@ -33,7 +36,17 @@ class ListFrag : Fragment() {
         binding.floatAButton.setOnClickListener{
             findNavController().navigate(R.id.action_listFrag_to_formularyFrag)
         }
+
+        mainViewModel.myTaskResponse.observe(viewLifecycleOwner, {response -> if(response != null)
+        {adapter.setList(response.body()!!) }
+        })
+
         return binding.root
+    }
+
+    override fun onTaskClicked(tarefa: Task) {
+        mainViewModel.selectedTask = tarefa
+        findNavController().navigate(R.id.action_listFrag_to_formularyFrag)
     }
 
 }

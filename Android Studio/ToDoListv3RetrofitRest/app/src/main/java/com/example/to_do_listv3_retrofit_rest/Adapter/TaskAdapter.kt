@@ -3,14 +3,19 @@ package com.example.to_do_listv3_retrofit_rest.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowId
 import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.to_do_listv3_retrofit_rest.API.ApiService
+import com.example.to_do_listv3_retrofit_rest.MainViewModel
 import com.example.to_do_listv3_retrofit_rest.Model.Task
 import com.example.to_do_listv3_retrofit_rest.R
+import com.example.to_do_listv3_retrofit_rest.Repository.Repository
+import retrofit2.http.DELETE
 
-class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter (private val taskItemClickListener: TaskItemClickListener, private val mainViewModel: MainViewModel) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private var listTask = emptyList<Task>()
 
@@ -42,6 +47,18 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         holder.textData.text = task.data
         holder.switchCard.isChecked = task.status
         holder.textCategory.text = task.categoria.descricao
+
+        holder.buttonDelete.setOnClickListener {
+            mainViewModel.rmvTask(task.id)
+        }
+
+        holder.switchCard.setOnCheckedChangeListener { compoundButton, ativo -> task.status = ativo
+        mainViewModel.updateTask(task) }
+
+        holder.itemView.setOnClickListener{
+            taskItemClickListener.onTaskClicked(task)
+        }
+
     }
 
     override fun getItemCount(): Int {
